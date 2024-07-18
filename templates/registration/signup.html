@@ -13,5 +13,6 @@
         {% comment %} {{ form.as_p }} {% endcomment %}
         {{forms|crispy}}
         <button type="submit" class='btn btn-success'>Sign Up</button>
-    </form>
+    </form> 
+    <a href="{% url 'login' %}">log In</a>
 {% endblock content %}
