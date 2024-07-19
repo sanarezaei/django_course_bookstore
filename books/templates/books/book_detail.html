@@ -1,13 +1,15 @@
 {% extends "_base.html" %}
 
 {% block page_title %}
-    جزئیات کتاب: {{ book.titl }}
+    جزئیات کتاب: {{ book.titl|capfirst }}
 {% endblock page_title %}
 
 {% block content %}
-    <h1>{{ book.title }}</h1>
-    <p>{{ book.description }}</p>
+    <h1>{{ book.title|capfirst }}</h1>
+    <p>{{ book.description|linebreaks }}</p>
     <h4>{{ book.author }}</h4>
     <h5>{{ book.price }}</h5>
     <p><a href="{% url 'book_list' %}">لیست کتاب ها</a></p>
+    <a href="{% url 'book_update' book.id %}"><button type='submit' class='btn btn-info'>ویرایش</button></a>
+    <a href="{% url 'book_delete' book.id %}"><button type='submit' class='btn btn-danger'>حذف</button></a>
 {% endblock content %}

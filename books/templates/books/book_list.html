@@ -5,8 +5,15 @@
 {% endblock page_title %}
 
 {% block content %}
-    {% for book in books %}
-    <a href="{{ book.get_absolute_url }}"><h1>{{ book.title }}</h1></a>
-    <p>{{ book.description }}</p>
-    {% endfor %}
+    <form action="" method=post>
+        {% for book in books %}
+        <a href="{{ book.get_absolute_url }}"><h1>{{ book.title|capfirst }}</h1></a>
+        <p>{{ book.description|truncatewords:15 }}</p>
+        {% endfor %}
+        <p>
+            <a href="{% url 'book_create' %}">اضافه کردن کتاب</a>
+        </p>  
+    </form>
+
 {% endblock content %}
+ 
